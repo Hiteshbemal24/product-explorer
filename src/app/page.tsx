@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useProducts } from "@/hooks/useProducts";
 import { Filters } from "@/components/Filters";
 import { ProductGrid } from "@/components/ProductGrid";
@@ -12,7 +12,9 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [selected, setSelected] = useState<Product | null>(null);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => setMounted(true), []);
   const categories = useMemo(() => {
     const unique = new Set(products.map((p) => p.category));
     return ["all", ...Array.from(unique)];
@@ -30,7 +32,7 @@ export default function HomePage() {
       <header className="mb-6">
         <h1 className="text-3xl font-bold">Product Explorer</h1>
         <p className="text-sm text-slate-500">
-          Last updated at {new Date().toLocaleTimeString()}
+          Last updated at {mounted ? new Date().toLocaleTimeString() : "loading..."}
         </p>
       </header>
 
