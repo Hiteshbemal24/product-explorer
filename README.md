@@ -1,23 +1,19 @@
 # Product Explorer — Starter
 
-The full brief is in **[`ASSIGNMENT.md`](./ASSIGNMENT.md)** — read it first.
+# Project Name
 
-This app **runs, but is intentionally incomplete and contains several bugs.**
-Your job is to find and fix the bugs and complete the two `TODO(candidate)` features.
+## Features
+- Product listing
+- Search
+- Category filtering
+- Product details modal
+- API error handling
 
-## Quick start
-
-```bash
+## Setup
 npm install
 npm run dev
-```
 
-Open http://localhost:3000. (Node 18.17+.)
+## Live Demo
+https://product-explorer-gules.vercel.app/
 
-Find the two features you need to complete:
 
-```bash
-grep -rn "TODO(candidate)" src/
-```
-
-Fill in `NOTES.md` as you go, and commit in small, meaningful steps.
