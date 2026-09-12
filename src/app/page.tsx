@@ -21,10 +21,11 @@ export default function HomePage() {
   }, [products]);
 
   const visibleProducts = products.filter((product) => {
-    if (category !== "all") {
-      return product.category === category;
-    }
-    return product.title.includes(search);
+    
+    const matchesCategory = category === "all" || product.category === category;
+    
+    const matchesSearch = product.title.toLowerCase().includes(search.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
